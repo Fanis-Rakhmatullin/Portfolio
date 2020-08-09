@@ -1,0 +1,28 @@
+.square-btns__item {
+  width: 35px;
+  height: 35px;
+  background: #333C49;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 12px;
+    width: 7px;
+    top: 50%;
+    left: 50%;
+    background: svg-load('arrow-down.svg', fill=#fff, width=100%, height=100%) center center no-repeat;
+  }
+
+  &--next {
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+
+  &--prev {
+    &::before {
+      transform: translate(-50%, -50%) rotate(-90deg) ;
+    }
+  }
+}
