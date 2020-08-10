@@ -1,0 +1,23 @@
+.quote__text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba($text-color, 0.8);
+  min-height: 150px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 70px;
+    background: svg-load('quote.svg', fill=#DDE3EC, width=90px, height=70px) center center no-repeat;
+    top: 12%;
+    left: 0;
+    transform: translateX(-115%);
+  }
+}
+
+
+
+
