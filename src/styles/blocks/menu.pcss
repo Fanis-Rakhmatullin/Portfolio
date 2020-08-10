@@ -1,6 +1,14 @@
 .menu {
   &--color--white {
     color: #fff;
+    .menu__item  {
+      
+      &:active, &:focus {
+        .menu__link {
+          color: #FF9A00;
+        }
+      }
+    }
   }
 }
 
@@ -15,9 +23,20 @@
   &:last-child {
     margin-right: 0;
   }
+
+  &:hover {
+    .menu__link {
+      text-shadow: 0px 0px 1px currentColor;
+    }
+  }
+
+  &:active, &:focus {
+    color: #07022b;
+  }
 }
 
 .menu__link {
   text-decoration: none;
   white-space: nowrap;
+  transition: 0.3s;
 }

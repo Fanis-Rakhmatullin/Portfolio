@@ -8,9 +8,13 @@
       border-radius: 50%;
       border: 1px solid currentColor;
       margin-right: 20px;
-
+      transition: 0.3s;
       &:last-child {
         margin-right: 0;
+      }
+
+      &:hover {
+        border-color: #FF9A00;
       }
     }
     .socials__link {
@@ -35,11 +39,18 @@
   &:last-child {
     margin-right: 0;
   }
+
+  &:hover {
+    .socials__icon {
+      fill: #FF9A00;
+    }
+  }
 }
 
 .socials__icon {
   width: 25px;
   height: 25px;
   fill: $text-color;
+  transition: 0.3s;
 }
 
