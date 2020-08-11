@@ -1,36 +1,5 @@
 .socials {
   display: flex;
-
-  &--round {
-    .socials__item {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 1px solid currentColor;
-      margin-right: 20px;
-      transition: 0.3s;
-      &:last-child {
-        margin-right: 0;
-      }
-
-      &:hover {
-        border-color: #FF9A00;
-      }
-    }
-    .socials__link {
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-    .socials__icon {
-      fill: currentColor;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
 }
 
 .socials__item {
@@ -42,7 +11,7 @@
 
   &:hover {
     .socials__icon {
-      fill: #FF9A00;
+      fill: #5500F2;
     }
   }
 }
@@ -54,3 +23,37 @@
   transition: 0.3s;
 }
 
+.socials--round {
+  .socials__item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    margin-right: 20px;
+    transition: 0.3s;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      border-color: #FF9A00;
+
+      .socials__icon {
+        fill: #FF9A00;
+      }
+    }
+  }
+  .socials__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .socials__icon {
+    fill: currentColor;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

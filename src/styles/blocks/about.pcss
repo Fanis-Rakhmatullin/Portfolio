@@ -1,25 +1,25 @@
 .about__container {
   display: flex;
-  /* height: 100vh; */
   align-items: center;
-  padding-top: 400px;
+  justify-content: center;
+  min-height: 680px;
+  /* padding-top: 400px; */
 }
 
 .about__user {
-  width: 32%;
-  margin-right: 113px;
+  width: 23%;
+  margin-right: 80px;
 }
 
 .about__content {
   flex: 1;
-  max-width: 54%;
+  max-width: 40%;
 }
 
 .about__desc {
   font-weight: 600;
   color: rgba(70, 78, 98, 0.8);
   margin-bottom: 20px;
-  padding-top: 4px;
 }
 
 .about__title {
@@ -40,4 +40,16 @@
   color: rgba(70, 78, 98, 0.8);
   line-height: 1.8;
   font-style: italic;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: svg-load('asterisk.svg', fill=rgba(219, 2, 0, 0.5), width=25px, height=25px) center center no-repeat;
+    top: 5%;
+    left: 0;
+    transform: translateX(-150%);
+  }
 }

@@ -63,10 +63,11 @@ block content
         polygon(points='0,100 1000,100 1000,0')
     section.values
       .container.values__container
-        .values__title
-          h2.values__title-text Чем я могу быть полезен вам
-          .values__content 
-            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        .values__title-wrapper  
+          .values__title
+            h2.values__title-text Чем я могу быть полезен вам
+            .values__content 
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
         .values__widget
 
           -
@@ -129,7 +130,7 @@ block content
     .container.reviews__container
       .slider
         .slider__header
-          .section-title Что обо мне говорят
+          .section-title.slider__title Что обо мне говорят
           .slider__btns
             button(type='button').round-btn.round-btn--pointer--left
             button(type='button').round-btn.round-btn--pointer--right
@@ -162,12 +163,13 @@ block content
     .container.footer__container
       .footer__copyright
         .footer__copyright-year &copy; 2020
-        .footer__copyright-name Фанис Рахматуллин
-        .footer__copyright-text Личный сайт веб - разработчика
+        .footer__copyright-content
+          .footer__copyright-name Фанис Рахматуллин
+          .footer__copyright-text Личный сайт веб - разработчика
       .footer__data  
         .footer__menu
           nav.menu.menu--color--white.footer__menu-elem
-            ul.menu__list
+            ul.menu__list.footer__menu-list
               each item in menuItems 
                 li.menu__item
                   a(href='#').menu__link #{item}

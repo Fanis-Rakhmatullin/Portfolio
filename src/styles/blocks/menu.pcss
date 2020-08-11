@@ -3,9 +3,12 @@
     color: #fff;
     .menu__item  {
       
-      &:active, &:focus {
+      &:hover, &:active {
+        border-color: #FF9A00;
+
         .menu__link {
           color: #FF9A00;
+          text-shadow: 0px 0px 1px currentColor;
         }
       }
     }
@@ -18,20 +21,20 @@
 }
 
 .menu__item {
-  margin-right: 60px;
+  padding-top: 30px;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  transition: 0.3s;
 
-  &:last-child {
-    margin-right: 0;
-  }
+  &:hover, &:active {
+    border-color: #5500F2;
 
-  &:hover {
     .menu__link {
+      color: #5500F2;
       text-shadow: 0px 0px 1px currentColor;
     }
-  }
-
-  &:active, &:focus {
-    color: #07022b;
   }
 }
 
@@ -39,4 +42,10 @@
   text-decoration: none;
   white-space: nowrap;
   transition: 0.3s;
+}
+
+.footer__menu {
+  .menu__item {
+    padding-top: 0;
+  }
 }

@@ -10,7 +10,8 @@
 
 .footer__copyright {
   flex-basis: 30%;
-  margin-right: 105px;
+  margin-right: 140px;
+  display: flex;
 }
 
 .footer__copyright-year {
@@ -18,8 +19,11 @@
   font-size: 48px;
   line-height: 1;
   color: rgba(70, 78, 98, 0.5);
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; 1200  */
+  margin-right: 60px;
+  white-space: nowrap;
 }
+
 
 .footer__copyright-name {
   font-weight: bold;
@@ -41,9 +45,13 @@
 }
 
 .footer__menu {
-  margin-bottom: 50px;
-  padding-top: 10px;
-  padding-right: 47%; 
+  margin-bottom: 20px;
+  width: 30%;
+}
+
+.footer__menu-list {
+  /* Равно padding-left на menu-item */
+  margin-left: -30px;
 }
 
 .footer__content {
@@ -58,7 +66,7 @@
 
 .footer__content-info {
   width: 40%;
-  margin-right: 50px;
+  margin-right: 130px;
 }
 
 .footer__content-quote {
@@ -68,5 +76,5 @@
 .footer__content-text {
   color: rgba(255, 255, 255, 0.45);
   line-height: 1.85;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }

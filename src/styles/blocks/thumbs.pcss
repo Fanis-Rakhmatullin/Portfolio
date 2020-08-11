@@ -1,0 +1,22 @@
+$border-width: 3px;
+
+.thumbs__item {
+  position: relative;
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: $border-width solid transparent;
+    top: -$border-width;
+    left: -$border-width;
+    z-index: 5;
+    transition: 0.3s;
+  }
+  
+  &:hover {
+    &:before {
+      border-color: #DC9322;
+    }
+  }
+}
