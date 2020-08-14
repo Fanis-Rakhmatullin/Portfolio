@@ -10,8 +10,13 @@
 
 .footer__copyright {
   flex-basis: 30%;
-  margin-right: 140px;
+  margin-right: 10%;
   display: flex;
+
+  @include desktop {
+    flex-direction: column;
+    margin-right: 7%;
+  }
 }
 
 .footer__copyright-year {
@@ -19,9 +24,13 @@
   font-size: 48px;
   line-height: 1;
   color: rgba(70, 78, 98, 0.5);
-  /* margin-bottom: 20px; 1200  */
   margin-right: 60px;
   white-space: nowrap;
+
+  @include desktop {
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
 }
 
 
@@ -66,7 +75,11 @@
 
 .footer__content-info {
   width: 40%;
-  margin-right: 130px;
+  margin-right: 10%;
+
+  @include desktop {
+    margin-right: 4%;
+  }
 }
 
 .footer__content-quote {

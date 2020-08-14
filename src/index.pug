@@ -76,7 +76,7 @@ block content
               ['Workflow', ['Git','Terminal','Gulp','Webpack']]
             ]
 
-          ul.skills
+          ul.skills.values__skills
             each category in skillsCategories 
               li.skills__item
                 .skills-row
@@ -101,7 +101,7 @@ block content
               +image('content/slider-1.jpg', 'works-preview__img')
               .works-preview__thumbs
                 ul.thumbs
-                  - for (var i = 3; i > 0; i--)
+                  - for (var i = 4; i > 0; i--)
                     li.thumbs__item
                       a(href='#').thumbs__link
                         +image(`content/slider-${i}.jpg`, 'thumb')

@@ -1,10 +1,19 @@
 .values {
-  background: url(~images/content/backpack-1200.png) left 2% center no-repeat;
+  background: url(~images/content/backpack-1800.png) left 2% center no-repeat;
+  background-size: 40%;
+  @include desktop {
+    background-image:  url(~images/content/backpack-1200.png);
+  }
 }
 
 .values__container {
   padding-top: 145px;
   padding-bottom: 345px;
+
+  @include desktop {
+    padding-top: 100px;
+    padding-bottom: 320px;
+  }
 }
 
 .values__title-wrapper {
@@ -16,6 +25,11 @@
   width: 40%;
   margin-bottom: 80px;
   margin-left: 9%;
+
+  @include desktop {
+    width: 55%;
+    margin-bottom: 100px;
+  }
 }
 
 .values__title-text {
@@ -31,7 +45,20 @@
   line-height: 1.85;
 }
 
-.values__widget {
-  padding-left: 43%;
+/* .values__widget {
+
+  
+
+  
+} */
+
+.values__skills {
+  width: 40%;
+  margin: 0 auto;
+  padding-left: 10%;
+
+  @include desktop {
+    padding-left: 3%;
+  } 
 }
 

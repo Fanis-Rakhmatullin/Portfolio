@@ -6,7 +6,7 @@
 .works-preview__pictures {
   width: 65%;
   position: relative;
-  height: 550px;
+  height: fit-content;
 
   &::before {
     position: absolute;
@@ -20,13 +20,17 @@
     transform: translateX(70%);
     z-index: -1;
   }
+
+  @include desktop {
+    width: 57%;
+  }
 }
 
 .works-preview__thumbs {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 178px;
+  width: 20%;
 }
 
 .works-preview__img {
@@ -43,17 +47,31 @@
 
 .works-preview__info {
   width: 24%;
+
+  @include desktop {
+    margin-right: 8%;
+  }
 }
 
 .works-preview__tags {
   margin-bottom: 25px;
+
+  @include desktop {
+    padding-top: 12px;
+    margin-bottom: 35px;
+  }
 }
 
 .works-preview__title {
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 35px;
+
+  @include desktop {
+    margin-bottom: 45px;
+  }
 }
+  
 
 .works-preview__desc {
   font-weight: 600;

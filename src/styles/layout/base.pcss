@@ -28,14 +28,18 @@ body {
 
 .container {
   margin: 0 auto;
-  /* max-width: 1480px;
-  width: 95%; */
   width: 95%;
   max-width: 1500px;
 
-  /* @include phones {
+  @include tablets {
+    width: 90%;
+    max-width: 690px;
+  }
+
+  @include phones {
     width: 85%;
-  } */
+    max-width: 260px;
+  }
 }
 
 /* .fullscreen-section {
