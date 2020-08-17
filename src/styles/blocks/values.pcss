@@ -1,8 +1,14 @@
 .values {
   background: url(~images/content/backpack-1800.png) left 2% center no-repeat;
   background-size: 40%;
+
   @include desktop {
     background-image:  url(~images/content/backpack-1200.png);
+  }
+
+  @include tablets {
+    background:  url(~images/content/backpack-1800.png) center bottom 10% no-repeat;
+    background-size: 37%;
   }
 }
 
@@ -14,21 +20,42 @@
     padding-top: 100px;
     padding-bottom: 320px;
   }
+  
+  @include tablets {
+    padding-top: 75px;
+    padding-bottom: 520px;
+  }
 }
 
 .values__title-wrapper {
   display: flex;
   justify-content: center;
+  margin-bottom: 80px;
+
+  @include desktop {
+    margin-bottom: 100px;
+  }
+
+  @include tablets {
+    margin-bottom: 50px;
+  }
 }
 
 .values__title {
   width: 40%;
-  margin-bottom: 80px;
   margin-left: 9%;
 
   @include desktop {
     width: 55%;
-    margin-bottom: 100px;
+  }
+
+  @include tablets {
+    width: 65%;
+    margin-left: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -37,6 +64,11 @@
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 50px;
+
+  @include tablets {
+    width: 75%;
+    margin-bottom: 35px;
+  }
 }
 
 .values__content {
@@ -45,20 +77,34 @@
   line-height: 1.85;
 }
 
-/* .values__widget {
+.values__widget {
 
-  
-
-  
-} */
+  @include tablets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+} 
 
 .values__skills {
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 80%;
+  /* width: 40%;
   margin: 0 auto;
-  padding-left: 10%;
+  padding-left: 10%; */
 
-  @include desktop {
-    padding-left: 3%;
+   @include desktop {
+    /* padding-left: 3%; */
+    width: 81%;
   } 
+
+  /*
+  @include tablets {
+    padding-left: 0;
+    margin: 0;
+    width: 100%
+  }  */
 }
 

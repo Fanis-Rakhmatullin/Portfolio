@@ -23,6 +23,15 @@
     left: 0;
     transform: translateX(-115%);
   }
+
+  @include tablets {
+    &::before {
+      width: 62Px;
+      height: 39Px;
+      background-size: contain;
+      left: 6%;
+    }
+  }
 }
 
 

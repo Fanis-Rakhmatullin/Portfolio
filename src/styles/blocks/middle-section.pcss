@@ -5,18 +5,35 @@
   @include desktop {
     padding-bottom: 50px;
   }
+
+  @include tablets {
+    padding-bottom: 100Px;
+  }
 }
 
-.middle-section__triangles-top {
-  position: absolute;
-  height: 100px;
-  bottom: 100%;
-  width: 100%;
-}
-
+.middle-section__triangles-top, 
 .middle-section__triangles-bottom {
   position: absolute;
   height: 100px;
-  top: 100%;
   width: 100%;
+
+  @include desktop {
+    height: 60Px;
+  }
+
+  @include tablets {
+    height: 40Px;
+  }
+  @include phones {
+    height: 40Px;
+  }
+}
+
+
+.middle-section__triangles-top {
+  bottom: 100%;
+}
+
+.middle-section__triangles-bottom {
+  top: 100%;
 }

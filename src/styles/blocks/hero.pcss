@@ -5,7 +5,23 @@
   justify-content: space-between;
   align-items: center;
   padding: 40px 0 30px;
+
+  @include tablets {
+    justify-content: flex-start;
+    height: 80vh;
+  }
 }
+
+.hero__header {
+  @include tablets {
+    margin-bottom: 115px;
+
+  .menu {
+      display: none;
+    }
+  }
+}
+
 
 .hero__bottom-buttons {
   display: flex;

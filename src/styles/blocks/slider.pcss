@@ -3,6 +3,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 77px;
+
+  @include tablets {
+    margin-bottom: 55px;
+  }
 }
 
 .slider__title {
@@ -10,6 +14,10 @@
 
   @include desktop {
     margin-right: 155px;
+  }
+
+  @include tablets {
+    margin-right: 30px;
   }
 }
 
@@ -27,13 +35,23 @@
   @include desktop {
     padding-right: 9%;
   }
+
+  @include tablets {
+    padding-right: 0;
+    justify-content: flex-end;
+  }
 }
 
 .slider__item {
   width: 32%;
 
-  &:last-child {
-    margin-right: 0;
+  @include tablets {
+    width: 45%;
+    margin-right: 4%;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 

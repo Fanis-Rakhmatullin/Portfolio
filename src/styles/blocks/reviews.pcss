@@ -4,6 +4,10 @@
   @include desktop {
     background: url('~images/content/reviews-bg-1200.jpg') bottom 78% right/cover no-repeat;
   }
+
+  @include tablets {
+    background: url('~images/content/reviews-bg-768.jpg') bottom 39% right/cover no-repeat;
+  }
 }
 
 .reviews__container {
@@ -11,4 +15,10 @@
   flex-direction: column;
   justify-content: center;
   min-height: 810px;
+
+  @include tablets {
+    justify-content: start;
+    padding-top: 160px;
+    min-height: 580Px;
+  }
 }

@@ -17,6 +17,10 @@
     flex-direction: column;
     margin-right: 7%;
   }
+
+  @include tablets {
+    margin-right: 13%;
+  }
 }
 
 .footer__copyright-year {
@@ -56,6 +60,16 @@
 .footer__menu {
   margin-bottom: 20px;
   width: 30%;
+
+  @include tablets {
+    margin-bottom: 10px;
+  }
+}
+
+.footer__menu {
+  .menu__item {
+    padding-top: 0;
+  }
 }
 
 .footer__menu-list {
@@ -65,6 +79,10 @@
 
 .footer__content {
   display: flex;
+
+  @include tablets {
+    flex-direction: column;
+  }
 }
 
 .footer__content-info, .footer__content-quote {
@@ -80,14 +98,28 @@
   @include desktop {
     margin-right: 4%;
   }
+
+  @include tablets {
+    width: 100%;
+    margin-bottom: 60px;
+    margin-right: 0;
+  }
 }
 
 .footer__content-quote {
   width: 53%;
+
+  @include tablets {
+    width: 100%;
+  }
 }
 
 .footer__content-text {
   color: rgba(255, 255, 255, 0.45);
   line-height: 1.85;
   margin-bottom: 40px;
+
+  @include tablets {
+    margin-bottom: 25px;
+  }
 }

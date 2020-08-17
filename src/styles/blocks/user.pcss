@@ -6,6 +6,10 @@
 
 .user__avatar {
   margin-bottom: 72px;
+
+  @include tablets {
+    margin-bottom: 50px;
+  }
 }
 
 .user__avatar-style {
@@ -27,6 +31,10 @@
 
   td {
     padding-bottom: 15px;
+
+    @include tablets {
+      padding-bottom: 10px;
+    }
   }
 
   tr:last-child td {
@@ -43,5 +51,9 @@
   font-weight: 600;
   color: $text-color;
   padding-left: 70px;
+
+  @include tablets {
+    padding-left: 44px;
+  } 
 }
 

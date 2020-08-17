@@ -1,6 +1,12 @@
 .works-preview {
   display: flex;
   justify-content: space-between;
+
+  
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .works-preview__pictures {
@@ -23,6 +29,17 @@
 
   @include desktop {
     width: 57%;
+  }
+
+  @include tablets {
+    align-self: start;
+    width: 92%;
+    margin-bottom: 60px;
+
+    &::before {
+      font-size: 300Px;
+      top: 25%;
+    }
   }
 }
 
@@ -51,6 +68,12 @@
   @include desktop {
     margin-right: 8%;
   }
+
+  @include tablets {
+    margin-right: 0;
+    width: 60%;
+    text-align: center;
+  }
 }
 
 .works-preview__tags {
@@ -59,6 +82,11 @@
   @include desktop {
     padding-top: 12px;
     margin-bottom: 35px;
+  }
+
+  @include tablets {
+    padding-top: 0;
+    margin-bottom: 28px;
   }
 }
 
@@ -70,6 +98,10 @@
   @include desktop {
     margin-bottom: 45px;
   }
+
+  @include tablets {
+    margin-bottom: 20px;
+  }
 }
   
 
@@ -78,6 +110,10 @@
   line-height: 1.85;
   color: rgba($text-color, 0.8);
   margin-bottom: 48px;
+
+  @include tablets {
+    margin-bottom: 20px;
+  }
 }
 
 

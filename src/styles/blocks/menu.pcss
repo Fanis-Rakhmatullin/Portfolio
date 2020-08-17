@@ -44,8 +44,20 @@
   transition: 0.3s;
 }
 
-.footer__menu {
+.menu--hamburger {
+  display: block;
+  
+  .menu__list {
+    flex-direction: column;
+  }
+
   .menu__item {
-    padding-top: 0;
+    border: 0;
+    padding: 0;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

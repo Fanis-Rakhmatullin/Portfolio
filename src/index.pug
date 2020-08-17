@@ -5,9 +5,10 @@ block content
   .welcome-section
     section.hero
       .container.hero__container
-        header.header
+        header.header.hero__header
           a.logo(href='#') ФР
-          nav.menu
+
+          nav.menu.hero__menu
             - var menuItems = ['Обо мне', 'Навыки', 'Работы', 'Отзывы']
             ul.menu__list
               each item in menuItems 
@@ -15,11 +16,14 @@ block content
                   a(href='#').menu__link #{item}
           
           - var socials = [['insta'], ['github'], ['vk'], ['envelope']]
-          ul.socials
+          ul.socials.socials--header--tablet
             each item in socials 
               li.socials__item
                 a(href='').socials__link
                   +icon(item, 'socials__icon')
+
+          a.hamburger-btn(href="#")
+            +icon('menu', 'hamburger-btn__icon')
 
         .hero__center-content
           .userinfo 
@@ -185,3 +189,22 @@ block content
           .text-quote.footer__content-quote
               .text-quote__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
               .text-quote__author Martin Golding
+  
+  .hamburger
+    a(href='#').hamburger__close
+      +icon('cross', 'hamburger__close-icon')
+
+    nav.menu.menu--hamburger.hamburger__menu
+      ul.menu__list
+        - var menuItems2 = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы']
+        each item in menuItems2 
+          li.menu__item
+            a(href='#').menu__link #{item}
+
+    .hamburger__socials
+      ul.socials.hamburger__socials-list
+        each item in socials 
+          li.socials__item
+            a(href='').socials__link
+              +icon(item, 'socials__icon')
+        

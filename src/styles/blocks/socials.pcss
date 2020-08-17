@@ -1,9 +1,15 @@
 .socials {
   display: flex;
+
+  &--header--tablet {
+    @include tablets {
+      padding-left: 230px;
+    }
+  }
 }
 
 .socials__item {
-  margin-right: 35px;
+  margin-right: 35Px;
 
   &:last-child {
     margin-right: 0;
@@ -17,8 +23,8 @@
 }
 
 .socials__icon {
-  width: 25px;
-  height: 25px;
+  width: 25Px;
+  height: 25Px;
   fill: $text-color;
   transition: 0.3s;
 }
