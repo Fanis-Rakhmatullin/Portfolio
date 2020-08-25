@@ -13,6 +13,12 @@
     align-items: start;
     padding-top: 135px;
   }
+
+  @include phones {
+    padding-top: 55px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .about__user {
@@ -28,6 +34,12 @@
     width: 34%;
     margin-right: 12%;
   }
+
+  @include phones {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 50px;
+  }
 }
 
 .about__content {
@@ -36,6 +48,10 @@
 
   @include tablets {
     max-width: 50%;
+  }
+
+  @include phones {
+    max-width: 100%;
   }
 }
 
@@ -47,6 +63,10 @@
   @include tablets {
     margin-bottom: 10px;
   }
+
+  @include phones {
+    margin-bottom: 0;
+  }
 }
 
 .about__title {
@@ -56,6 +76,10 @@
 
   @include tablets {
     margin-bottom: 35px;
+  }
+
+  @include phones {
+    margin-bottom: 30px;
   }
 }
 
@@ -67,6 +91,10 @@
 
   @include tablets {
     margin-bottom: 40px;
+  }
+
+  @include phones {
+    margin-bottom: 64px;
   }
 }
 
@@ -86,5 +114,9 @@
     top: 5%;
     left: 0;
     transform: translateX(-150%);
+
+    @include phones {
+      left: 8px;
+    }
   }
 }

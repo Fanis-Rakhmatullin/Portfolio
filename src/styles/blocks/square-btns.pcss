@@ -1,40 +1,66 @@
+.square-btns {
+  display: flex;
+}
+
 .square-btns__item {
   width: 53px;
   height: 53px;
   background: #333C49;
   position: relative;
+  padding: 0;
 
   @include desktop {
     width: 40px;
     height: 40px;
   }
 
+  @include phones {
+    width: 60px;
+    height: 60px;
+  }
+
   &::before {
     content: '';
     position: absolute;
-    height: 12px;
-    width: 7px;
+    height: 24px;
+    width: 14px;
     top: 50%;
     left: 50%;
     background: svg-load('arrow-down.svg', fill=#717883, width=100%, height=100%) center center no-repeat;
+    
+    @include phones {
+      width: 20px;
+      height: 14px;
+    }
   }
 
-  &:hover, &:active {
-
+  &:hover, &:active, &:focus {
+    outline: none;
     &::before {
       background: svg-load('arrow-down.svg', fill=#464E62, width=100%, height=100%) center center no-repeat;
     }
   }
 
-  &--next {
+  &:active {
     &::before {
-      transform: translate(-50%, -50%) rotate(90deg);
+      top: 55%;
     }
   }
 
   &--prev {
     &::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+
+  &--next {
+    &::before {
       transform: translate(-50%, -50%) rotate(-90deg) ;
     }
   }
+}
+
+.square-btns__item.inactive {
+  opacity: 0.5;
+  cursor: initial;
 }

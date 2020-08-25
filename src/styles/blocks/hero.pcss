@@ -10,13 +10,24 @@
     justify-content: flex-start;
     height: 80vh;
   }
+
+  @include phones {
+    padding-top: 60px;
+    height: 100vh;
+  }
 }
 
 .hero__header {
   @include tablets {
     margin-bottom: 115px;
 
-  .menu {
+    .menu {
+      display: none;
+    }
+  }
+
+  @include phones {
+    .socials {
       display: none;
     }
   }

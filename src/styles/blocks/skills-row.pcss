@@ -10,24 +10,16 @@
 
 .skills-row__list {
   display: flex;
+  justify-content: space-between;
 
-  @include tablets {
-    justify-content: center;  
-  } 
+  @include phones {
+    flex-wrap: wrap;
+  }
 }
 
 .skills-row__item {
-  margin-right: 11%;
-
-  &:last-child {
-    margin-right: 0;
+  @include phones {
+    margin-bottom: 15px;
   }
-
-  @include desktop {
-    margin-right: 10%;
-  } 
-
-  @include tablets {
-    margin-right: 5%;
-  } 
 }
+

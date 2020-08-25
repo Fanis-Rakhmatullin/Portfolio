@@ -16,20 +16,26 @@
   &::before {
     content: '';
     position: absolute;
-    width: 90px;
-    height: 70px;
+    width: 30%;
+    height: 55%;
     background: svg-load('quote.svg', fill=#DDE3EC, width=90px, height=70px) center center no-repeat;
     top: 2%;
-    left: 0;
+    left: 15px;
     transform: translateX(-115%);
   }
 
   @include tablets {
     &::before {
-      width: 62Px;
-      height: 39Px;
+      width: 15%;
+      height: 31%;
+      left: 2%;
       background-size: contain;
-      left: 6%;
+    }
+  }
+
+  @include phones {
+    &::before {
+      display: none;
     }
   }
 }

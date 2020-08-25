@@ -6,6 +6,10 @@
   padding-top: 70px;
   padding-bottom: 80px;
   display: flex;
+
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .footer__copyright {
@@ -21,6 +25,11 @@
   @include tablets {
     margin-right: 13%;
   }
+
+  @include phones {
+    margin-right: 0;
+    margin-bottom: 48px;
+  }
 }
 
 .footer__copyright-year {
@@ -35,6 +44,10 @@
     margin-bottom: 20px;
     margin-right: 0;
   }
+
+  @include phones {
+    margin-bottom: 29px;
+  }
 }
 
 
@@ -45,6 +58,10 @@
   color: #fff;
   margin-bottom: 22px;
   text-transform: uppercase;
+
+  @include tablets {
+    margin-bottom: 10px;
+  }
 }
 
 .footer__copyright-text {
@@ -64,17 +81,32 @@
   @include tablets {
     margin-bottom: 10px;
   }
+
+  @include phones {
+    width: 100%;
+  }
 }
 
 .footer__menu {
   .menu__item {
     padding-top: 0;
+    
+    @include phones {
+      padding-left: 45px;
+      padding-right: 45px;
+    }
   }
 }
 
 .footer__menu-list {
   /* Равно padding-left на menu-item */
   margin-left: -30px;
+
+  @include phones {
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
 }
 
 .footer__content {

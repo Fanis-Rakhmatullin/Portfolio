@@ -10,6 +10,11 @@
     background:  url(~images/content/backpack-1800.png) center bottom 10% no-repeat;
     background-size: 37%;
   }
+
+  @include phones {
+    background-position: center bottom 6%;
+    background-size: 80%;
+  }
 }
 
 .values__container {
@@ -25,6 +30,10 @@
     padding-top: 75px;
     padding-bottom: 520px;
   }
+
+  @include phones {
+    padding-bottom: 400px;
+  }
 }
 
 .values__title-wrapper {
@@ -38,6 +47,10 @@
 
   @include tablets {
     margin-bottom: 50px;
+  }
+
+  @include phones {
+    margin-bottom: 65px;
   }
 }
 
@@ -57,6 +70,11 @@
     flex-direction: column;
     align-items: center;
   }
+
+  @include phones {
+    width: 100%;
+    text-align: left;
+  }
 }
 
 .values__title-text {
@@ -69,6 +87,10 @@
     width: 75%;
     margin-bottom: 35px;
   }
+
+  @include phones {
+    width: 100%;
+  }
 }
 
 .values__content {
@@ -78,6 +100,8 @@
 }
 
 .values__widget {
+  display: flex;
+  justify-content: flex-end;
 
   @include tablets {
     display: flex;
@@ -86,25 +110,21 @@
   }
 } 
 
-.values__skills {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 80%;
-  /* width: 40%;
-  margin: 0 auto;
-  padding-left: 10%; */
+.values__widget-container {
+  width: 57%;
+  padding-right: 7%;
 
-   @include desktop {
-    /* padding-left: 3%; */
-    width: 81%;
-  } 
+  @include desktop {
+    width: 65%;
+    padding-right: 0;
+  }
 
-  /*
   @include tablets {
-    padding-left: 0;
-    margin: 0;
-    width: 100%
-  }  */
+    width: 95%;
+  }
+
+  @include phones {
+    width: 100%;
+  }
 }
 

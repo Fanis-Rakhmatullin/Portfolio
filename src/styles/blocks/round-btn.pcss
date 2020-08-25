@@ -6,10 +6,24 @@
   background: svg-load('arrow-down.svg', fill=#464E62, width=10px, height=18px) center center no-repeat;
   transition: 0.3s;
   &:hover, &:focus {
-    opacity: 0.5;
+    outline: none;
+    border-color: black;
+  }
+  &:active {
+    border-radius: 40%;
   }
 }
 
 .round-btn--pointer--left {
   transform: rotate(180deg);
+}
+
+.round-btn.inactive {
+  opacity: 0.5;
+  cursor: initial;
+
+  &:hover, &:focus, &:active {
+    border-radius: 50%;
+    border-color: #464E62;
+  }
 }

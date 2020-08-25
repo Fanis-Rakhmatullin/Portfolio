@@ -12,7 +12,7 @@
 .works-preview__pictures {
   width: 65%;
   position: relative;
-  height: fit-content;
+  height: 550px;
 
   &::before {
     position: absolute;
@@ -29,16 +29,33 @@
 
   @include desktop {
     width: 57%;
+    height: unset;
+
+    &::before {
+      font-size: 310px;
+      top: 15%;
+    }
   }
 
   @include tablets {
     align-self: start;
     width: 92%;
     margin-bottom: 60px;
+    height: 360Px; 
 
     &::before {
       font-size: 300Px;
       top: 25%;
+    }
+  }
+
+  @include phones {
+    width: 100%;
+    margin-bottom: 67px;
+    height: 32vh;
+
+    &::before {
+      display: none;
     }
   }
 }
@@ -48,6 +65,10 @@
   right: 0;
   bottom: 0;
   width: 20%;
+
+  @include phones {
+    display: none;
+  }
 }
 
 .works-preview__img {
@@ -60,6 +81,11 @@
   position: absolute;
   top: 100%;
   right: 0;
+
+  @include phones {
+    top: unset;
+    bottom: 0;
+  }
 }
 
 .works-preview__info {
@@ -73,6 +99,11 @@
     margin-right: 0;
     width: 60%;
     text-align: center;
+  }
+
+  @include phones {
+    width: 80%;
+    text-align: left;
   }
 }
 
@@ -88,6 +119,10 @@
     padding-top: 0;
     margin-bottom: 28px;
   }
+
+  @include phones {
+    margin-bottom: 20px;
+  }
 }
 
 .works-preview__title {
@@ -101,6 +136,10 @@
 
   @include tablets {
     margin-bottom: 20px;
+  }
+
+  @include phones {
+    margin-bottom: 5px;
   }
 }
   

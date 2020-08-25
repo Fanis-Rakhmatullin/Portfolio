@@ -12,6 +12,7 @@ $border-width: 3px;
     left: -$border-width;
     z-index: 5;
     transition: 0.3s;
+    cursor: pointer;
   }
   
   &:hover {
@@ -19,8 +20,26 @@ $border-width: 3px;
       border-color: #DC9322;
     }
   }
+}
+
+.thumbs__item.active {
+  &:before {
+    border-color: #DC9322;
+  }
+}
+
+.thumbs__link {
+  padding: 0;
+  display: block;
+  height: 100px;
+  overflow: hidden;
 
   @include desktop {
-    
+    height: 65Px;
   }
+}
+
+.thumbs__img {
+  max-height: unset;
+  object-fit: cover;
 }
