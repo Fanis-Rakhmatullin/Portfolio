@@ -13,7 +13,8 @@ script(type="text/x-template")#preview-container
 
 script(type="text/x-template")#preview-display
    .works-preview__pictures(:data-slide='currentWork.id')
-      img(:src="currentWork.photo").works-preview__img
+      .works-preview__img-wrapper
+        img(:src="currentWork.photo").works-preview__img
       .works-preview__thumbs
         thumbs(
           :works="reversedWorks"
