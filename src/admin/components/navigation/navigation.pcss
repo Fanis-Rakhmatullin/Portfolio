@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+}
+
+.link {
+  display: block;
+  color: #414C63;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 30px;
+  border-bottom: 3px solid transparent;
+
+  &:hover {
+    color: #383BCF;
+    border-color: #383BCF;
+  }
+}
+
+.item.active {
+  .link {
+    color: #383BCF;
+    border-color: #383BCF;
+  }
+}
