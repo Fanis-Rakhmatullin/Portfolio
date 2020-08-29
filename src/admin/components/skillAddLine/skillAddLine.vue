@@ -1,5 +1,5 @@
 <template lang="pug">
-  .skill-add-line-component
+  .skill-add-line-component(:class="{blocked: blocked}")
     .skill-name
       app-input(placeholder="Новый навык")
     .skill-percent
@@ -13,6 +13,9 @@ import input from "../input/input";
 import button from "../button/button";
 
 export default {
+  props: {
+    blocked: Boolean,
+  },
   components: {
     appInput: input,
     roundBtn: button

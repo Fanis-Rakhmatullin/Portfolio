@@ -8,9 +8,15 @@
 
   .skill-component(v-else)
     h3.title
-      app-input(noSidePaddings v-model="currentSkill.title")
+      app-input(
+        noSidePaddings 
+        v-model="currentSkill.title")
     .percent
-      app-input(v-model="currentSkill.percent" type="number" min="0" max="100" maxlength="3")
+      app-input(
+        v-model="currentSkill.percent" 
+        type="number" 
+        min="0" max="100" 
+        maxlength="3")
     .buttons
       icon(symbol="tick" @click="$emit('approve', currentSkill)").btn
       icon(symbol="cross" @click="editMode = false").btn

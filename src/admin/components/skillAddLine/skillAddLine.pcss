@@ -1,9 +1,27 @@
 .skill-add-line-component {
   display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  &.blocked {
+    filter: grayscale(80%);
+    pointer-events: none;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
 }
 
 .skill-name {
   margin-right: 8px;
+  flex: 1;
 }
 
 .skill-percent {
