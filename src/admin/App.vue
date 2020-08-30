@@ -25,6 +25,7 @@
             :title="category.category"
             :skills="category.skills"
           )
+      tag-adder(v-model="tags")
 </template>
 
 <script>
@@ -33,6 +34,7 @@ import user from './components/user'
 import navigation from './components/navigation'
 import button from './components/button'
 import category from './components/category'
+import tagAdder from './components/tagAdder'
 
 export default {
   components: {
@@ -41,11 +43,13 @@ export default {
     navigation,
     iconedButton: button,
     category,
+    tagAdder,
   },
   data() {
     return {
       category: [],
       emptyCatIsShown: false,
+      tags: "one,  two, three",
     }
   },
   created() {

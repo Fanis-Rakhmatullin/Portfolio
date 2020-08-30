@@ -8,10 +8,11 @@
     </div>
     <div v-else class="title">
       <div class="input">
+        <!-- ниже errorText был заменен на errorMessage -->
         <app-input
           placeholder="Название новой группы"
           :value="value"
-          :errorText="errorText"
+          :errorMessage="errorText"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
