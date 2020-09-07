@@ -67,6 +67,7 @@ export default {
 <style lang="postcss" scoped>
   .tags {
     display: flex;
+    flex-wrap: wrap;
     margin-top: 20px;
   }  
 

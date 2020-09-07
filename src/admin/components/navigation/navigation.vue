@@ -5,9 +5,12 @@ nav.navigation-component
       li.item(
         v-for="link in links", 
         :key="link.id"
-        :class="{active: link.active}"
         )
-        a.link(:href="`/${link.alias}`") {{ link.title }}
+        router-link.link(
+          :to="`/${link.alias}`"
+          active-class="active"
+          exact
+          ) {{ link.title }}
 </template>
 
 <script>
@@ -15,7 +18,7 @@ const links = [
   {
     id: 0,
     title: "Обо мне",
-    alias: "about",
+    alias: "",
     active: false,
   },
   {
