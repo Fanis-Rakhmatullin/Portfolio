@@ -1,34 +1,23 @@
-
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column
 }
 
-.page-content {
-  padding: 60px 0 20px;
-  background: url("../images/content/admin-bg.png") center center / cover no-repeat;
-  flex: 1;
+.notification {
+  transition: transform 0.3s;
 }
 
-.header {
-  display: flex;
-  margin-bottom: 50px;
+.notify-container {
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &.active {
+    .notification {
+      transform: translateY(-100%);
+    }
+  }
 }
 
-.title {
-  font-weight: bold;
-  font-size: 21px;
-  color: $text-color;
-  margin-right: 60px;
-}
-
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.item {
-  width: calc(100% / 2 - 30px);
-  margin-right: 30px;
-}

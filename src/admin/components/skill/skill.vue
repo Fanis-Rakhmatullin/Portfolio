@@ -1,10 +1,14 @@
 <template lang="pug">
-  .skill-component(v-if="!editMode")
+  .skill-component(v-if="!currentSkill.editMode")
     h3.title {{skill.title}}
     .percent {{skill.percent}} %
     .buttons
-      icon(symbol="pencil" @click="editMode = true" grayscale).btn
-      icon(symbol="trash" grayscale @click="$emit('remove', skill.id)").btn
+      icon(symbol="pencil" @click="currentSkill.editMode = true" grayscale).btn
+      icon(
+        symbol="trash"
+        grayscale
+        @click="$emit('remove', currentSkill)"
+        ).btn
 
   .skill-component(v-else)
     h3.title
@@ -22,8 +26,8 @@
         maxlength="3"
         )
     .buttons
-      icon(symbol="tick" @click="$emit('approve', currentSkill)").btn
-      icon(symbol="cross" @click="editMode = false").btn
+      icon(symbol="tick" @click="approve").btn
+      icon(symbol="cross" @click="currentSkill.editMode = false").btn
 </template>
 
 <script>
@@ -53,17 +57,24 @@ export default {
   },
   data() {
     return {
-      editMode: false,
       currentSkill: {
-        id: 0,
+        id: this.skill.id,
         title: this.skill.title,
         percent: this.skill.percent,
+        category: this.skill.category,
+        editMode: false,
       },
     };
   },
   components: {
     icon,
     appInput: input,
+  },
+  methods: {
+    async approve() {
+      if (await this.$validate() == false) return;
+      this.$emit('approve', this.currentSkill);
+    },
   },
 };
 </script>

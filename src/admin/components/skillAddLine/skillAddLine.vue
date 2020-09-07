@@ -12,9 +12,8 @@
         v-model="skill.percent"
         :errorMessage="validation.firstError('skill.percent')"
         )
-        //- @click="handleClick" временно убран из round-button
     .add-skill
-      round-btn(type="round" )
+      round-btn(type="round" @click="handleClick")
 </template>
 
 <script>
@@ -51,10 +50,10 @@ export default {
     }
   },
   methods: {
-    // async handleClick() {
-    //   if (await this.$validate() == false) return;
-    //   this.$emit("approve", this.skill);
-    // }
+    async handleClick() {
+      if (await this.$validate() == false) return;
+      this.$emit("approve", this.skill);
+    }
   },  
 }
 </script>

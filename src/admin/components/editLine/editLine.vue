@@ -10,9 +10,10 @@
       <div class="input">
         <!-- ниже errorText был заменен на errorMessage -->
         <app-input
+          v-model="title"
+          :errorMessage="validation.firstError('title')"
           placeholder="Название новой группы"
           :value="value"
-          :errorMessage="errorText"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
@@ -32,38 +33,53 @@
 </template>
 
 <script>
+import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
+
 export default {
+  mixins: [ValidatorMixin],
+  validators: {
+    "title": (value) => {
+      return Validator.value(value).required("Не может быть пустым");
+    },
+  },
   props: {
     value: {
       type: String,
-      default: ""
+      default: "",
     },
-    errorText: {
-      type: String,
-      default: ""
-    },
+    // errorText: {
+    //   type: String,
+    //   default: "",
+    // },
     editModeByDefault: Boolean,
-    blocked: Boolean
+    blocked: Boolean,
   },
   data() {
     return {
       editmode: this.editModeByDefault,
-      title: this.value
+      title: this.value,
     };
   },
   methods: {
-    onApprove() {
-      if (this.title.trim() === this.value.trim()) {
-        this.editmode = false;
-      } else {
-        this.$emit("approve", this.value);
-      }
-    }
+    async onApprove() {
+
+      if (await this.$validate() == false) return;
+      this.$emit("approve", this.title);
+      this.editmode = false;
+    
+      // if (this.value.trim === "") return false;
+      // if (this.title.trim() === this.value.trim()) {
+      //   this.editmode = false;
+      // } else {
+      //   this.$emit("approve", this.value);
+      //   this.editmode = false;
+      // }
+    },
   },
   components: {
     icon: () => import("components/icon"),
-    appInput: () => import("components/input")
-  }
+    appInput: () => import("components/input"),
+  },
 };
 </script>
 

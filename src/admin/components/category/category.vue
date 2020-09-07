@@ -6,6 +6,7 @@
       :editModeByDefault="empty"
       :errorText="validation.firstError('categoryTitle')"
       @remove="$emit('remove', $event)"
+      @approve="$emit('approve', $event)"
       )
     template(slot="content")
       ul.skills(slot="content" v-if="!empty")
@@ -16,7 +17,10 @@
             @approve="$emit('edit-skill', $event)"
             ) 
       .bottom-line
-        skill-add-line(:blocked="empty")
+        skill-add-line(
+          :blocked="empty"
+          @approve="$emit('createSkill', $event)"
+          )
 </template>
 
 <script>
@@ -25,12 +29,6 @@ import editLine from '../editLine/editLine'
 import skill from '../skill/skill'
 import skillAddLine from '../skillAddLine/skillAddLine'
 import { Validator, mixin as ValidatorMixin } from 'simple-vue-validator';
-
-// const skills = [
-//   {id: 0, title: "HTML", percent: 80},
-//   {id: 1, title: "CSS", percent: 70},
-//   {id: 2, title: "JavaScript", percent: 45},
-// ]
 
 export default {
   mixins: [ValidatorMixin],
