@@ -39,6 +39,24 @@ export default {
 @import "normalize.css";
 @import "../styles/mixins.pcss";
 @import "../styles/layout/base.pcss";
+
+.page-title {
+  font-weight: bold;
+  font-size: 21px;
+  color: $text-color;
+  margin-right: 60px;
+}
+
+.page-content {
+  padding: 60px 0 20px;
+  background: url("../images/content/admin-bg.png") center center / cover no-repeat;
+  flex: 1;
+}
+
+.page-header {
+  display: flex;
+  margin-bottom: 50px;
+}
 </style>
 
 <style lang="postcss" scoped src="./app.pcss"></style>

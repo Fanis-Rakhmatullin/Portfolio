@@ -2,8 +2,8 @@
 .about-page-component
   .page-content
     .container(v-if="loading == false")
-      .header
-        h2.title Блок «Обо мне»
+      .page-header
+        h2.page-title Блок «Обо мне»
         iconed-button(
           type="iconed",
           title="Добавить группу",
@@ -28,7 +28,6 @@
             @remove-skill="removeSkill"
           )
     .container(v-else) loading...
-      //- tag-adder(v-model="tags")
 </template>
 
 <script>

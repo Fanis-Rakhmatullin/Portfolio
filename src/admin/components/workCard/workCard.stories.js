@@ -28,3 +28,20 @@ export const defaultView = () => ({
     ></work-card>
   `
 })
+
+defaultView.story = {
+  name: "Стандартный вид",
+};
+
+export const adderView = () => ({
+  components: { workCard },
+  template: `
+  <work-card
+  addWorkCard
+  ></work-card>
+  `,
+});
+
+adderView.story = {
+  name: "Добавить работу",
+};

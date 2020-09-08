@@ -60,7 +60,6 @@ export default {
         const response = await $axios.post("/login", this.user);
 
         const token = response.data.token;
-        console.log(response);
         localStorage.setItem("token", token);
         $axios.defaults.headers["Authorization"] = `Bearer ${token}`;
         this.$router.replace("/");
@@ -81,14 +80,16 @@ export default {
 </style>
 
 <style lang="postcss">
-.input {
-  .title {
-    padding-left: 42px;
+ .login-page-component {
+  .input {
+    .title {
+      padding-left: 42px;
+    }
   }
-}
 
-.input__elem {
-  border-color: #373e42;
-  outline: none;
-}
+  .input__elem {
+    border-color: #373e42;
+    outline: none;
+  }
+ }
 </style>

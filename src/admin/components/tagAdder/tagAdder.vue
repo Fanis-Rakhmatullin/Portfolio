@@ -40,13 +40,13 @@ export default {
   },
   data() {
     return {
-      currentTags: this.tags,
+      currentTags: this.tags
     }
   },
   computed: {
     tagsArray() {
-      return this.currentTags.trim().split(',');
-    }
+      return this.tags.trim().split(',');
+    },
   },
   methods: {
     removeTag(tag) {

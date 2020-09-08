@@ -1,6 +1,6 @@
 <template lang="pug">
 ul.tags-list-component
-  li.item(v-for="tag in tagsArray", :key="tag")
+  li.item(v-for="(tag, ndx) in tagsArray", :key="ndx")
     tag(:title="tag")
 </template>
 
@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     tagsArray() {
-      return this.tags.split(",");
+      return this.tags.trim().split(",");
     },
   },
 };
@@ -22,6 +22,8 @@ export default {
 <style scoped lang="postcss">
 ul {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 li {
   margin-right: 10px;

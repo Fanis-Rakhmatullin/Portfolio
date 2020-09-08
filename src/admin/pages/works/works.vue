@@ -3,12 +3,25 @@
   .page-content
     .container
       .page-header
-        .page-title Блок "Работы"
-      .form
-        work-form
+        h2.page-title Блок «Работы»
+      .form(v-if="addMode")
+        work-form(
+        :editExistedWork="editExistedWork"
+        :workToEdit="workToEdit"
+        @clearForm="changeCurrentMode('closeForm')"
+        )
       ul.cards
+        li.item
+          work-card(
+            addWorkCard
+            @addWork="changeCurrentMode('addNewWork')"
+            )
         li.item(v-for="work in works", :key="work.id")
-          work-card(:work="work")
+          work-card(
+            :work="work"
+            @deleteWork="deleteCurrentWork"
+            @editWork="editCurrentWork"
+            )
 </template>
 
 <script>
@@ -18,8 +31,54 @@ import { mapState, mapActions } from "vuex";
 
 export default {
   components: { workForm, workCard },
+  data() {
+    return {
+      addMode: false,
+      editExistedWork: false,
+      workToEdit: {},
+    };
+  },
+  computed: {
+    ...mapState("works", {
+      works: (state) => state.data,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchWorks: "works/fetch",
+      deleteWork: "works/delete"
+    }),
+    changeCurrentMode(status) {
+      this.addMode = status;
+      switch(status) {
+        case 'addNewWork':
+          this.addMode = true;
+          this.editExistedWork = false;
+          break;
+        case 'editExistedWork':
+          this.addMode = true;
+          this.editExistedWork = true;
+          break;
+        case 'closeForm':
+          this.addMode = false;
+          this.editExistedWork = false;
+          break;
+      }
+    },
+    deleteCurrentWork(workId) {
+      this.deleteWork(workId);
+    },
+    editCurrentWork(work) {
+      this.workToEdit = { ...work };
+      this.editExistedWork = true;
+      this.addMode = true;
+    }
+  },
+  mounted() {
+    this.fetchWorks();
+  },
 };
 </script>
 
-<style lang="pcss" scoped src="./works.pcss">
+<style lang="postcss" scoped src="./works.pcss">
 </style>

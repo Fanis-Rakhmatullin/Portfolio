@@ -1,33 +1,51 @@
 <template lang="pug">
-  div.user-component
-    avatar(:size="'2.7'" :src="userPic")
-    .username Рахматуллин Фанис
+.user-component
+  avatar(:size="'2.7'", :src="userPic")
+  .data 
+    .username {{ username }}
+    .occupation(v-if="occupation") {{occupation}}
 </template>
 
 <script>
-import avatar from '../avatar/avatar';
+import avatar from "../avatar/avatar";
+
 export default {
   components: {
     avatar,
   },
+  props: {
+    username: String,
+    userPicLink: {
+      type: String,
+      default: "images/content/user",
+    },
+    occupation: String,
+  },
   computed: {
     userPic() {
-      return require('../../../images/content/user.jpg').default
-    }
+      return require(`../../../${this.userPicLink}.jpg`).default;
+    },
   },
-}
+};
 </script>
 
-<style lang="postcss">
-  .user-component {
-    display: flex;
-    font-size: 18px;
-    font-weight: 600;
-    align-items: center;
-    color: #fff;
-  }
+<style lang="postcss" scoped>
+.user-component {
+  display: flex;
+  font-size: 18px;
+  font-weight: 600;
+  align-items: center;
+  color: inherit;
+}
 
-  .username {
-    margin-left: 18px;
-  }
+.data {
+  display: flex;
+  flex-direction: column;
+  margin-left: 18px;
+}
+
+.occupation {
+  font-weight: 600;
+  color: rgba($text-color, 0.5);
+}
 </style>
