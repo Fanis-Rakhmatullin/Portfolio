@@ -1,6 +1,6 @@
 <template lang="pug">
 .user-component
-  avatar(:size="'2.7'", :src="userPic")
+  avatar.avatar(:size="'2.7'", :src="userPic")
   .data 
     .username {{ username }}
     .occupation(v-if="occupation") {{occupation}}
@@ -15,15 +15,17 @@ export default {
   },
   props: {
     username: String,
-    userPicLink: {
-      type: String,
-      default: "images/content/user",
-    },
+    userPicLocal: String,
+    userPicLink: String,
     occupation: String,
   },
   computed: {
     userPic() {
-      return require(`../../../${this.userPicLink}.jpg`).default;
+      if (this.userPicLink) {
+        return this.userPicLink;
+      } else {
+        return require(`../../../${this.userPicLocal}.jpg`).default;
+      }
     },
   },
 };
@@ -36,6 +38,10 @@ export default {
   font-weight: 600;
   align-items: center;
   color: inherit;
+}
+
+.avatar {
+  flex: none;
 }
 
 .data {

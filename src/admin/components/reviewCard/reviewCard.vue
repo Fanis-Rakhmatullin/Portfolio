@@ -3,20 +3,29 @@
     .reviews-wrapper(v-if="!addReview")
       .user
         user(
-          :username="review.name"
-          :userPicLink="review.userpic"
-          :occupation="review.occupation"
+          :username="review.author"
+          :userPicLink="userPicLink"
+          :occupation="review.occ"
         )
       .data
         .text
           p {{review.text}}
         .btns
-          icon(symbol="pencil" title="Править")
-          icon(symbol="cross" title="Удалить")
+          icon(
+            symbol="pencil"
+            title="Править"
+            @click="$emit('editReview', review)"
+            )
+          icon(
+            symbol="cross" 
+            title="Удалить"
+            @click="$emit('deleteReview', review.id)"
+            )
     .reviews-wrapper(v-else)
       square-btn(
         type="square"
         title="Добавить отзыв"
+        @click="$emit('addReview')"
       )
 </template>
 
@@ -26,21 +35,20 @@
 import card from "../card";
 import user from '../user'
 import icon from "../icon";
-import tagsList from "../tagsList";
 import squareBtn from '../button/types/squareBtn'
 
 export default {
-components: { card, user, icon, tagsList, squareBtn },
+components: { card, user, icon, squareBtn },
   props: {
     review: Object,
     cover: String,
     addReview: Boolean,
   },
-  // computed: {
-  //   cover() {
-  //     return `http://localhost:8000/${this.work.photo}`
-  //   }
-  // },
+  computed: {
+    userPicLink() {
+      return `https://webdev-api.loftschool.com/${this.review.photo}`
+    }
+  },
 };
 </script>
 

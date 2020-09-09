@@ -2,7 +2,6 @@ export default {
   namespaced: true,
   state: {
     data: [],
-    editMode: false,
   },
   mutations: {
     ADD_WORK(state, newWork) {
@@ -33,13 +32,16 @@ export default {
         const { data } = await this.$axios.post("/works", formData);
         commit("ADD_WORK", data);
       } catch (error) {
-        console.log("error");
+        throw new Error("Произошла ошибка");
       }
     },
     async delete({ commit }, workId) {
-      await this.$axios.delete(`/works/${workId}`);
-      commit("DELETE_WORK", workId);
-
+      try {
+        await this.$axios.delete(`/works/${workId}`);
+        commit("DELETE_WORK", workId);
+      } catch (error) {
+        throw new Error("Произошла ошибка");
+      }
     },
     async edit({ commit }, editedWork) {
 
@@ -47,17 +49,21 @@ export default {
 
       Object.keys(editedWork).forEach(item => {
         formData.append(item, editedWork[item]);
-      })
+      });
 
-      const { data } = await this.$axios.post(`/works/${editedWork.id}`, formData);
-      commit("EDIT_WORK", data.work);
+      try {
+        const { data } = await this.$axios.post(`/works/${editedWork.id}`, formData);
+        commit("EDIT_WORK", data.work);
+      } catch (error) {
+        throw new Error("Произошла ошибка");
+      }
     },
     async fetch({ commit }) {
       try {
         const { data } = await this.$axios.get("/works/381");
         commit("SET_WORKS", data);
       } catch (error) {
-        console.log("error");
+        throw new Error("Произошла ошибка");
       }
     }
   },

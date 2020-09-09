@@ -1,6 +1,10 @@
 import Vue from "vue";
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import 'swiper/swiper-bundle.css';
+import axios from "axios";
+import config from "../../env.paths.json";
+
+axios.defaults.baseURL = config.BASE_URL;
 
 
 new Vue({
@@ -26,7 +30,7 @@ new Vue({
   methods: {
     requireImagesToArray(data) {
       return data.map((item) => {
-        const requiredImage = require(`../images/content/${item.pic}`).default;
+        const requiredImage = `https://webdev-api.loftschool.com/${item.photo}`;
         item.pic = requiredImage;
         return item;
       })
@@ -58,8 +62,8 @@ new Vue({
       this.position = ""
     });
   },
-  created() {
-    const data = require("../data/reviews.json");
+  async created() {
+    const { data } = await axios.get("/reviews/381");
     this.reviews = this.requireImagesToArray(data);
   },
 })

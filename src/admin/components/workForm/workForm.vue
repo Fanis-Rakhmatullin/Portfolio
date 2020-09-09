@@ -18,12 +18,21 @@
 
           .form-col
             .form-row
-              app-input(v-model="currentWork.title", title="Название")
-            .form-row
-              app-input(v-model="currentWork.link", title="Ссылка") 
+              app-input(
+                v-model="currentWork.title"
+                :errorMessage="validation.firstError('currentWork.title')"
+                title="Название"
+                )
             .form-row
               app-input(
-                v-model="currentWork.description",
+                v-model="currentWork.link"
+                :errorMessage="validation.firstError('currentWork.link')"
+                title="Ссылка"
+                ) 
+            .form-row
+              app-input(
+                v-model="currentWork.description"
+                :errorMessage="validation.firstError('currentWork.description')"
                 field-type="textarea",
                 title="Описание"
               )
@@ -45,9 +54,22 @@ import card from "../card";
 import appButton from "../button";
 import appInput from "../input";
 import tagAdder from "../tagAdder";
+import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 import { mapActions } from "vuex";
 
 export default {
+  mixins: [ValidatorMixin],
+  validators: {
+    "currentWork.title": (value) => {
+      return Validator.value(value).required("Не может быть пустым");
+    },
+    "currentWork.description": (value) => {
+      return Validator.value(value).required("Не может быть пустым");
+    },
+    "currentWork.link": (value) => {
+      return Validator.value(value).required("Не может быть пустым");
+    },
+  },
   components: { card, appButton, appInput, tagAdder },
   data() {
     return {
@@ -79,22 +101,48 @@ export default {
     ...mapActions({
       addNewWork: "works/add",
       editNewWork: "works/edit",
+      showTooltip: "tooltips/show",
     }),
     handleDragOver(e) {
       e.preventDefault();
       this.hovered = true;
     },
     async handleSubmit() {
+      if (await this.$validate() == false) return;
+
       let trimmed = this.currentWork.techs.trim().split(",");
       trimmed = trimmed.filter((item) => item.trim().length > 0);
       this.currentWork.techs = trimmed.join(", ");
 
       if (this.editExistedWork == true) {
-        await this.editNewWork(this.currentWork);
+        try {
+          await this.editNewWork(this.currentWork);
+          this.showTooltip({
+          text: "Работа изменена",
+          type: "success",
+        });
+        } catch (error) {
+          this.showTooltip({
+            text: error.message,
+            type: "error",
+          });
+        }
       } else {
-        await this.addNewWork(this.currentWork);
+        try {
+          await this.addNewWork(this.currentWork);
+          this.showTooltip({
+            text: "Работа добавлена",
+            type: "success",
+          });
+        } catch (error) {
+          this.showTooltip({
+            text: error.message,
+            type: "error",
+          });
+        }
       }
 
+      this.preview = "";
       this.$emit("clearForm");
     },
     handleChange(event) {
@@ -104,10 +152,10 @@ export default {
         ? event.dataTransfer.files[0]
         : event.target.files[0];
 
-        this.currentWork.photo = file;
-        this.renderPhoto(file);
+      this.currentWork.photo = file;
+      this.renderPhoto(file);
 
-        this.hovered = false;
+      this.hovered = false;
     },
     renderPhoto(file) {
       const reader = new FileReader();
@@ -122,7 +170,9 @@ export default {
     },
   },
   mounted() {
-    this.preview = `https://webdev-api.loftschool.com/${this.workToEdit.photo}`;
+    if (this.editExistedWork == true) {
+      this.preview = `https://webdev-api.loftschool.com/${this.workToEdit.photo}`;
+    }
   },
 };
 </script>

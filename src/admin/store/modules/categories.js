@@ -58,7 +58,7 @@ export default {
         const { data } = await this.$axios.post('/categories', { title });
         commit("ADD_CATEGORY", data);
       } catch (error) {
-        throw new Error("произошла ошибка");
+        throw new Error("Произошла ошибка");
       }
     },
     async fetch({ commit }) {
@@ -66,7 +66,7 @@ export default {
         const { data } = await this.$axios.get('/categories/381');
         commit('SET_CATEGORIES', data);
       } catch (error) {
-        throw new Error("произошла ошибка");
+        throw new Error("Произошла ошибка");
       }
     },
     async remove({ commit }, categoryToRemove) {
@@ -74,7 +74,7 @@ export default {
         await this.$axios.delete(`/categories/${categoryToRemove.id}`);
         commit('REMOVE_CATEGORY', categoryToRemove);
       } catch (error) {
-        throw new Error("произошла ошибка");
+        throw new Error("Произошла ошибка");
       }
     },
     async edit({ commit }, categoryToEdit) {
@@ -82,7 +82,7 @@ export default {
         await this.$axios.post(`/categories/${categoryToEdit.id}`, { title: categoryToEdit.category });
         commit('EDIT_CATEGORY', categoryToEdit);
       } catch (error) {
-        throw new Error("произошла ошибка");
+        throw new Error("Произошла ошибка");
       }
     }
   }

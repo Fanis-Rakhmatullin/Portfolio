@@ -8,7 +8,6 @@
     </div>
     <div v-else class="title">
       <div class="input">
-        <!-- ниже errorText был заменен на errorMessage -->
         <app-input
           v-model="title"
           :errorMessage="validation.firstError('title')"
@@ -47,10 +46,6 @@ export default {
       type: String,
       default: "",
     },
-    // errorText: {
-    //   type: String,
-    //   default: "",
-    // },
     editModeByDefault: Boolean,
     blocked: Boolean,
   },

@@ -1,4 +1,8 @@
 import Vue from "vue";
+import axios from "axios";
+import config from "../../env.paths.json";
+
+axios.defaults.baseURL = config.BASE_URL;
 
 const thumbs = {
   props: ["currentWork", "works"],
@@ -11,7 +15,14 @@ const btns = {
 };
 
 const display = {
-  props: ["currentWork", "works", "slidable"],
+  props: {
+    currentWork: {
+      type: Object,
+      default: () => {},
+    }, 
+    works: Array, 
+    slidable: Object
+  },
   template: "#preview-display",
   components: { thumbs, btns },
   computed: {
@@ -28,13 +39,22 @@ const tags = {
 };
 
 const info = {
-  props: ["currentWork"],
+  props: {
+    currentWork: {
+      type: Object,
+      default: () => {},
+    },
+    works: Array
+  },
   template: "#preview-info",
   components: { tags },
   computed: {
     tagsArray() {
-      return this.currentWork.skills.split(",")
-    }
+      return this.currentWork.techs.split(",")
+    },
+  },
+  mounted() {
+    console.log(this.tagsArray);
   },
 };
 
@@ -76,10 +96,11 @@ new Vue({
     }
   },
   methods: {
-    requireImagesToArray(data) {
-      return data.map(item => {
-        const requiredImage = require(`../images/content/${item.photo}`).default;
+    prepareWorkData(data) {
+      return data.map((item, ndx) => {
+        const requiredImage = `https://webdev-api.loftschool.com/${item.photo}`;
         item.photo = requiredImage;
+        item.id = ndx + 1;
         return item;
       })
     },
@@ -112,8 +133,10 @@ new Vue({
       }
     }
   },
-  created() {
-    const data = require("../data/works.json");
-    this.works = this.requireImagesToArray(data);
+  async created() {
+    const { data } = await axios.get("/works/381");
+
+    this.works = this.prepareWorkData(data);
+    console.log('созщдано');
   }
 })

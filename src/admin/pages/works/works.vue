@@ -4,7 +4,7 @@
     .container
       .page-header
         h2.page-title Блок «Работы»
-      .form(v-if="addMode")
+      .form(v-if="addMode" :key='renderer')
         work-form(
         :editExistedWork="editExistedWork"
         :workToEdit="workToEdit"
@@ -36,6 +36,7 @@ export default {
       addMode: false,
       editExistedWork: false,
       workToEdit: {},
+      renderer: 1,
     };
   },
   computed: {
@@ -46,12 +47,13 @@ export default {
   methods: {
     ...mapActions({
       fetchWorks: "works/fetch",
-      deleteWork: "works/delete"
+      deleteWork: "works/delete",
+      showTooltip: "tooltips/show",
     }),
     changeCurrentMode(status) {
-      this.addMode = status;
       switch(status) {
         case 'addNewWork':
+          this.renderer += 1;
           this.addMode = true;
           this.editExistedWork = false;
           break;
@@ -60,15 +62,28 @@ export default {
           this.editExistedWork = true;
           break;
         case 'closeForm':
+          this.renderer += 1;
           this.addMode = false;
           this.editExistedWork = false;
           break;
       }
     },
     deleteCurrentWork(workId) {
-      this.deleteWork(workId);
+      try {
+        this.deleteWork(workId);
+        this.showTooltip({
+          text: `Работа удалена`,
+          type: "success",
+        });
+      } catch (error) {
+        this.showTooltip({
+          text: error.message,
+          type: "error",
+        });
+      }
     },
     editCurrentWork(work) {
+      this.renderer += 1;
       this.workToEdit = { ...work };
       this.editExistedWork = true;
       this.addMode = true;

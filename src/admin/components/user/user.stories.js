@@ -10,13 +10,13 @@ export const defaultView = () => ({
   data() {
     return {
       username: "Иванов Иван",
-      userPicLink: "images/content/user",
+      userPicLocal: "images/content/user",
     }
   },
   template: `
     <user
     :username="username"
-    :userPicLink="userPicLink"
+    :userPicLocal="userPicLink"
     ></user>
   `
 });
@@ -26,7 +26,7 @@ export const withOccupationView = () => ({
   data() {
     return {
       username: "Иванов Иван",
-      userPicLink: "images/content/user",
+      userPicLocal: "images/content/user",
       occupation: "Преподаватель",
     }
   },

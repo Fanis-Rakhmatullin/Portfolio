@@ -1,4 +1,8 @@
 import Vue from "vue";
+import axios from "axios";
+import config from "../../env.paths.json";
+
+axios.defaults.baseURL = config.BASE_URL;
 
 const skillsItem = {
   props: ["skill"],
@@ -10,8 +14,11 @@ const skillsItem = {
       const dashArray = parseInt(
         getComputedStyle(circle).getPropertyValue("stroke-dasharray")
       );
+      const dashOffset = parseInt(
+        getComputedStyle(circle).getPropertyValue("stroke-dashoffset")
+      );
 
-      const percent = (dashArray / 100) * (100 - this.skill.percent);
+      const percent = dashArray - (dashOffset / 100 * this.skill.percent);
 
       circle.style.strokeDashoffset = percent;
     }
@@ -40,18 +47,10 @@ new Vue({
       skills: [],
     }
   },
-  created() {
-    this.skills = require("../data/skills.json");
-
+  async created() {
+    const { data } = await axios.get("/categories/381");
+    this.skills = data;
   }
 })
 
 
-
-
-
-//- -
-  //-   var skillsCategories = [
-  //-     ["Front-end", ["HTML",'CSS','JavaScript','jQuery и Vue.js']],
-  //-     ['Workflow', ['Git','Terminal','Gulp','Webpack']]
-  //-   ]

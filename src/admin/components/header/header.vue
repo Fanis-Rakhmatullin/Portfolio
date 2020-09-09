@@ -3,7 +3,7 @@
   headline(title="Панель администрирования")
     user.user(
       :username="username"
-      :userPicLink="userpic"
+      :userPicLocal="userpic"
     )
   navigation
 </template>
