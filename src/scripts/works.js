@@ -53,9 +53,6 @@ const info = {
       return this.currentWork.techs.split(",")
     },
   },
-  mounted() {
-    console.log(this.tagsArray);
-  },
 };
 
 new Vue({
@@ -137,6 +134,5 @@ new Vue({
     const { data } = await axios.get("/works/381");
 
     this.works = this.prepareWorkData(data);
-    console.log('созщдано');
   }
 })
