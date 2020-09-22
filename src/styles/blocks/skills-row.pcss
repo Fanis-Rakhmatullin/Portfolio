@@ -8,17 +8,28 @@
   } 
 }
 
-.skills-row__list {
+.skills-row__wrapper {
   display: flex;
-  flex-wrap: wrap;
+
+  @include tablets {
+    justify-content: center;
+  }
+}
+
+.skills-row__list {
+  width: 100%;
+  display: grid;
+  grid-template: auto / repeat(4, 1fr);
+  grid-row-gap: 5%;
+
+  @include phones {
+    grid-template: auto / repeat(2, 1fr);
+  }
 }
 
 .skills-row__item {
-  margin-right: 2%;
-
-  @include phones {
-    margin-bottom: 15px;
-    margin-right: 8%;
+  @include tablets {
+    justify-self: center;
   }
 }
 
