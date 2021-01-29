@@ -1,6 +1,20 @@
-# Учебный проект Portfolio школы LoftSchool
+# Portfolio
+## Учебный проект курса "Vue.js Продвинутая веб-разработка" школы Loft School.
 
-## Студент: Рахматуллин Фанис
+### Тема курса:
+* HTML / PUG
+* CSS / SCSS 
+* JavaScript 
+* Vue.js
+* yarn / Webpack
+* Storybook
+* Асинхронный JS / HTTP - запросы / axios / 
+* Тестирование кода / Jest
+* Авторизация на сервере / JSON Web Token 
 
-## Курс: VUE.JS (03.08.2020 - 10.09.2020)
+### Логин и пароль для просмотра админ-панели:
+#### Логин:
+#### Пароль: 
+
+#### [Ссылка на GitHub Pages](https://fanis-rakhmatullin.github.io/Portfolio/dist/)
 

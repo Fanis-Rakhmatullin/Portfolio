@@ -3,12 +3,12 @@
     h3.title {{skill.title}}
     .percent {{skill.percent}} %
     .buttons
-      icon(symbol="pencil" @click="currentSkill.editMode = true" grayscale).btn
+      icon(symbol="pencil" @click="currentSkill.editMode = true" grayscale).btn.btn--pencil
       icon(
         symbol="trash"
         grayscale
         @click="$emit('remove', currentSkill)"
-        ).btn
+        ).btn.btn--trash
 
   .skill-component(v-else)
     h3.title
@@ -26,8 +26,8 @@
         maxlength="3"
         )
     .buttons
-      icon(symbol="tick" @click="approve").btn
-      icon(symbol="cross" @click="currentSkill.editMode = false").btn
+      icon(symbol="tick" @click="approve").btn.btn--tick
+      icon(symbol="cross" @click="currentSkill.editMode = false").btn.btn--cross
 </template>
 
 <script>

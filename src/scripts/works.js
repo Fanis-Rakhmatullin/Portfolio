@@ -76,27 +76,16 @@ new Vue({
   },
   watch: {
     works() {
-      if (!this.works[1]) {
-        this.slidable.next = false;
-      }
-      else {
-        this.slidable.next = true;
-      }
+      this.slidable.next = this.works.length !== 1;
     },
     deletedItems() {
-      if (this.deletedItems.length === 0) {
-        this.slidable.prev = false;
-      }
-      else {
-        this.slidable.prev = true;
-      }
+      this.slidable.prev = this.deletedItems.length !== 0;
     }
   },
   methods: {
     prepareWorkData(data) {
       return data.map((item, ndx) => {
-        const requiredImage = `https://webdev-api.loftschool.com/${item.photo}`;
-        item.photo = requiredImage;
+        item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
         item.id = ndx + 1;
         return item;
       })
