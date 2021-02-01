@@ -28,6 +28,7 @@
 import workForm from "../../components/workForm";
 import workCard from "../../components/workCard";
 import { mapState, mapActions } from "vuex";
+import store from "../../store";
 
 export default {
   components: { workForm, workCard },
@@ -90,7 +91,7 @@ export default {
     }
   },
   mounted() {
-    this.fetchWorks();
+    this.fetchWorks(store.getters["user/getUserId"]);
   },
 };
 </script>

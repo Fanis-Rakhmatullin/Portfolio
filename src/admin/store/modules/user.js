@@ -5,25 +5,27 @@ export default {
   },
   mutations: {
     SET_USER: (state, user) => (state.user = user),
-    CLEAR_USER: state => (state.user = {}),
+    CLEAR_USER: (state) => (state.user = {}),
   },
   getters: {
-    userIsLoggedIn: state => {
+    userIsLoggedIn: (state) => {
       const userObj = state.user;
-      const userObjIsEmpty = Object.keys(userObj).length == 0
-        &&
-        userObj.constructor == Object;
+      const userObjIsEmpty =
+        Object.keys(userObj).length == 0 && userObj.constructor == Object;
 
       return userObjIsEmpty == false;
-    }
+    },
+    getUserId: (state) => {
+      return state.user.id;
+    },
   },
   actions: {
     login({ commit }, user) {
-      commit('SET_USER', user);
+      commit("SET_USER", user);
     },
     logout({ commit }) {
       localStorage.removeItem("token");
       location.reload();
-    }
-  }
-}
+    },
+  },
+};

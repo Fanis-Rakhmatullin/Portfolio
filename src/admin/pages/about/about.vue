@@ -35,6 +35,7 @@ import button from "../../components/button";
 import category from "../../components/category";
 import tagAdder from "../../components/tagAdder";
 import { mapActions, mapState } from "vuex";
+import store from "../../store";
 
 export default {
   components: {
@@ -49,7 +50,8 @@ export default {
     };
   },
   computed: {
-    ...mapState("categories", {
+    ...mapState("categories", 
+    {
       categories: (state) => state.data,
     }),
   },
@@ -163,7 +165,8 @@ export default {
     async fetchCategories() {
       try {
         this.loading = true;
-        await this.fetchCategoriesAction();
+        let userId = store.getters["user/getUserId"];
+        await this.fetchCategoriesAction(userId);
       } catch (error) {
         this.showTooltip({
           text: error.message,

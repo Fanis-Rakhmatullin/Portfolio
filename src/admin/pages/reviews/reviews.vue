@@ -30,6 +30,8 @@
 import reviewForm from "../../components/reviewForm";
 import reviewCard from "../../components/reviewCard";
 import { mapState, mapActions } from "vuex";
+import store from "../../store";
+
 export default {
   components: { reviewForm, reviewCard },
   data() {
@@ -91,7 +93,7 @@ export default {
     },
   },
   mounted() {
-    this.fetchReviews();
+    this.fetchReviews(store.getters["user/getUserId"]);
   },
 };
 </script>
